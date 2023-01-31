@@ -1,0 +1,28 @@
+#d_liste_kanji{
+    width: 85%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap : wrap;
+    justify-content: space-around;
+}
+
+#lstkanji, #lmots{
+    font-size: 1.2em;
+}
+
+.lkanji{
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap : wrap;
+    gap: 1.4em;
+
+}
+.kanji{
+    font-size:4em;
+    padding: 0.4em;
+    border: black solid 1px;
+
+}

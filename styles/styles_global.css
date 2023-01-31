@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&family=Noto+Sans+JP&display=swap');
+
+* {
+    font-family: 'Exo', sans-serif;
+}
+
+body{
+    margin-bottom:3.75em;
+    min-height:100%;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width:100%;
+    margin-top: 0;
+    background-color:#97d8fd;
+
+    display:flex;
+    flex-direction:row;
+}
+
+#menu{
+    display:flex;
+    align-items:center;
+    padding-left:5em;
+}
+
+#menu ul{
+
+    display:flex;
+    flex-direction:row;
+    column-gap:2.3em;
+    align-items:center;
+    flex-wrap:wrap;
+
+    font-size:1.9em;
+}
+
+#menu li {
+    list-style-type: none;
+}
+
+#menu li a {
+    text-decoration: none;
+    color:white;
+}
+
+#contenu {
+    margin: auto;
+}
+
+p{
+    font-size:1.25em;
+}
+
+#logo{
+    height:8.15em;
+    padding-left:2.5em;
+}
+
+h2{
+    font-size:2.2em;
+}
+
+h3{
+    font-size:2em;
+}
+
+.chjap{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+footer {
+    text-align: center;
+    bottom: 0;
+    width:100%;
+}
+
+footer p{
+    font-size:1em;
+    font-style:italic;
+    bottom: 0;
+    margin:0;
+}
+
+#construction {
+    font-weight: bold;
+}

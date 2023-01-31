@@ -1,0 +1,93 @@
+#contenu{
+    margin-left:auto;
+    margin-right:auto;
+    
+    min-height:100%;
+
+    text-align:center;
+}
+
+.btn_jeux, .btn_jeux_avenir{
+    font-size:1.9em;
+    font-weight: bold;
+}
+
+.a_jeux{
+    text-decoration:none;
+    font-size:1.3em;
+    font-weight:bold;
+
+    margin-left:1em;
+    margin-right:1em;
+
+    text-align:center;
+
+    color:#2facff;
+
+    transition: color 0.2s;
+}
+
+.a_jeux:hover{
+    color:#ff4500;
+}
+
+.jeux{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:5em;
+    margin-bottom:5em;
+    padding:1.2em;
+
+    border-radius:15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width:50%;
+    
+    background-color:#f3f3f3;
+}
+
+.explications{
+    width:60%;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.explications p{
+    font-size:1.4em;
+}
+
+.p_avenir{
+    font-style: italic;
+    font-size:0.8em;
+}
+
+#contact{
+    background-color:#f3f3f3;
+    margin-top:3em;
+    margin-bottom:3em;
+
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+
+#btn_contact{
+    height:2.7em;
+    width:8em;
+    margin:0 0.3em 0.3em 0.3em;
+    font-size:1.7em;
+    font-weight: bold;
+
+    border-style: none;
+    border-radius: 10px 35px 10px 35px;
+
+    background-color:#313131;
+    color: #c4c4c4;
+    transition: background-color 0.3s, color 0.3s;
+
+    cursor: pointer;
+}
+
+#btn_contact:hover{
+    background-color:#b8b8b8;
+    color: #2facff;
+}
