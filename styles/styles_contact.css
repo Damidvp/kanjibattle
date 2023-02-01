@@ -1,0 +1,81 @@
+#contenu{
+    margin-right:auto;
+    margin-left:auto;
+
+    margin-bottom:3em;
+}
+
+#contenu h2{
+    text-align:center;
+    margin-bottom:1em;
+}
+
+#contenu h3{
+    font-size:1.8em;
+}
+
+#elements_form{
+    display:flex;
+    flex-direction:column;
+    
+}
+
+#d_contacter{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    column-gap:7em;
+}
+
+.text_input{
+    width:20em;
+    height:1.8em;
+    font-size:1em;
+}
+
+#fs_choix{
+    width:20em;
+    margin-bottom:1.8em;
+}
+
+#ta_message{
+    font-size:1em;
+
+    width:30em;
+    height:10em;
+    min-width:30em;
+    min-height:10em;
+    max-width:45em;
+    max-height:18em;
+}
+
+#btn_submit{
+    width:8em;
+    height:3.2em;
+
+    font-size:1.1em;
+
+    border-style:none;
+    border-radius:7px;
+
+    cursor: pointer;
+
+    background-color:#9e9e9e;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#btn_submit:hover, #btn_submit:active, #btn_submit:focus{
+    background-color:#313131;
+    color:white;
+}
+
+#envoyer_message{
+    width:46em;
+    background-color:#EFEFEF;
+    padding-left:1.5em;
+    padding-right:1.5em;
+
+    border-radius:20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
