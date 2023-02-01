@@ -16,7 +16,7 @@
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="pages/liste_kanji.php">Listes</a></li>
                 <li><a href="pages/liste_jeux.php">Jeux</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="pages/contact.php">Contact</a></li>
             </ul>
         </div>
     </header>
@@ -51,8 +51,7 @@
         <div id="jouer">
         <h3>Commencez votre aventure ici</h3>
         <div id="boutons">
-        <button id="b_liste_kanji" onclick="window.location.href = 'pages/liste_kanji.php'">Liste des kanji</button>
-        <button id="b_jouer" onclick="window.location.href = 'pages/view_qcmbonkanji.php'">Jouer</button>
+        <button id="b_jouer" onclick="window.location.href = 'pages/liste_jeux.php'">Jouer</button>
         </div>
         </div>
         </section>

@@ -26,3 +26,10 @@
     border: black solid 1px;
 
 }
+
+#d_lect{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+
+}

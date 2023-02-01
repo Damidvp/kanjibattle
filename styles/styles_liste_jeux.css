@@ -59,6 +59,7 @@
 .p_avenir{
     font-style: italic;
     font-size:0.8em;
+    color:#e00000;
 }
 
 #contact{
@@ -71,8 +72,8 @@
 }
 
 #btn_contact{
-    height:2.7em;
-    width:8em;
+    height:3em;
+    width:10em;
     margin:0 0.3em 0.3em 0.3em;
     font-size:1.7em;
     font-weight: bold;

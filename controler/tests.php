@@ -24,7 +24,7 @@
             echo "<div class='lkanji'>";
             echo "<div id='d_kanji'><span class='chjap'><span class='kanji'>".$kanji->getKanji()."</span></span></div>";
             echo "<div id='d_lect'>";
-            echo "Lectures KUN: ";
+            echo "<div id='d_lect_kun'>Lectures KUN : ";
             $lecturesKun = $seLitKunPDO->getSeLitKunByKanji($kanji->getKanji());
             if (count($lecturesKun)==0){
                 echo "<i>Aucune</i>";
@@ -33,8 +33,8 @@
                     echo "<span class='chjap'>".$uneLectureKun->getLaLectureKun()->getLecture()."  </span>";
                 }
             }
-            echo "<br>";
-            echo "Lectures ON : ";
+            echo "</div><br>";
+            echo "<div id='d_lect_on'>Lectures ON : ";
             $lecturesOn = $seLitOnPDO->getSeLitOnByKanji($kanji->getKanji());
             if (count($lecturesOn)==0){
                 echo "<i>Aucune</i>";
@@ -43,7 +43,7 @@
                     echo "<span class='chjap'>".$uneLectureOn->getLaLectureOn()->getLecture()."  </span>";
                 }
             }
-            echo "</div></div>";
+            echo "</div></div></div>";
             echo "<br><br>";
         }
         echo "</div> <div id='lmots'>";

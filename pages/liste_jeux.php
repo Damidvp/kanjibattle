@@ -13,19 +13,16 @@
 
         <div id="contenu">
 
-        <h2>Jeux actuels</h2>
+        <h2>Liste des jeux actuels</h2>
 
         <div class="jeux">
         <h3 class="btn_jeux">QCM de kanji</h3>
         <div class="explications">
-            <p>Une bonne réponse parmi 4 propositions. Lancez-vous dans une série de 20 questions et répondez juste à un maximum de questions.</p>
+            <p>Une bonne réponse parmi 4 propositions. Lancez-vous dans une série de 20 questions et donnez un maximum de bonnes réponses.</p>
             <a class="a_jeux" href="view_qcmbonkanji.php">Jouer solo</a>
             <a class="a_jeux" href="#">Jouer en multijoueur</a>
         </div>
         </div>
-        
-
-        <h2 id="h2_avenir">Jeux à venir</h2>
 
         <div class="jeux">
         <h3 class="btn_jeux_avenir">Devine le kanji</h3> <!-- Un joueur/robot dessine un kanji, le ou les (autres) joueurs doivent le deviner -->

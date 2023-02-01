@@ -35,7 +35,12 @@ if(!isset($_GET['action'])){
             $_SESSION['numQcm']++;
             afficherUnQcm();
         } else {
-            echo "Félicitations, vous avez terminé le QCM !";
+            echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
+            echo "<script type='text/javascript'> hideTimer(); </script>";
+            echo "<h3>Félicitations, vous avez terminé le quiz !</h3>";
+            //echo "<p>Vous avez réussi ".$nbReussis." question(s).</p>";
+            //echo "<p>Vous avez échoué à ".$nbEchoues." question(s).</p>";
+            //echo "<p>En tout, vous avez donné ".$mauvaisesRep." mauvaise(s) réponse(s).</p>";
             //Bouton revenir à l'accueil et recommencer
             unset($_SESSION['qcmDejaPasses']);
             unset($_SESSION['numQcm']);
@@ -64,6 +69,7 @@ function afficherUnQcm(){
     $_SESSION['kanjiPossibles'] = $kanjiPossibles;
     
     echo "<div id='qcm'>";
+    echo "<progress id='progress_bar' value='".($nombreDeQcmsActuel-count($qcmRestants))."' max='".$nombreDeQcmsActuel."'></progress>";
     echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
     echo "<h3>Question ".$_SESSION['numQcm']." : ".$unQcmAuPif->getTexteQuestion()."</h3><br>";
 

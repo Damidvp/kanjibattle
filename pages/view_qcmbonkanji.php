@@ -16,10 +16,9 @@
 
             <h2><span class='chjap'>漢字Quiz!</span></h2>
 
-            <div id="cont_quiz">
-                
-                <progress id="progress_bar" value="10" max="100"></progress>
+            <div id="timer">10</div>
 
+            <div id="cont_quiz">
                 <div id="ajax"><?php include "../controler/ctrl_qcm_bonkanji.php"; ?></div>
                 <br>
             </div>
@@ -31,14 +30,17 @@
                 <div id="mauvaise_reponse">
                     <p>Ce n'est pas la bonne réponse, essayez encore !</p>
                 </div>
+                <div id="temps_ecoule">
+                    <p>Temps écoulé, voici la bonne réponse !</p>
+                </div>
                 <div id="d_btn_qsuivante">
                     <button id="btn_qsuivante">Question suivante ></button>
                 </div>
             </div>
-
+            <a href="../controler/ctrl_leave_qcm.php"><div id="retour">Retour à l'accueil</div></a>
         </div>
         <br>
-        <a id="retour" href="../controler/ctrl_leave_qcm.php">Retour à l'accueil</a>
+        
 
         <?php include "../pages/view_footer.php"; ?>
 
