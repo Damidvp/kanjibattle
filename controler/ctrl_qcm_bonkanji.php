@@ -20,6 +20,9 @@ if(!isset($_SESSION['qcmDejaPasses'])){
 if(!isset($_SESSION['numQcm'])){
     $_SESSION['numQcm'] = 1;
 }
+if(!isset($_SESSION['nombreBonnesReponses'])){
+    $_SESSION['nombreBonnesReponses'] = 0;
+}
 
 if(!isset($_GET['action'])){
     if(isset($_SESSION['unQcmAuPif'])){
@@ -28,6 +31,7 @@ if(!isset($_GET['action'])){
         afficherUnQcm();
     }
 } else {
+    $_SESSION['nombreBonnesReponses'] += (int) "<script type ='text/javascript'> document.write(aBienRepondu); </script>";
     if(isset($_GET['action']) && $_GET['action'] == 'newQcm'){
         if(count($_SESSION['qcmDejaPasses']) < $nombreDeQcmsActuel){
             unset($_SESSION['unQcmAuPif']);
@@ -36,16 +40,15 @@ if(!isset($_GET['action'])){
             afficherUnQcm();
         } else {
             echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
-            echo "<script type='text/javascript'> hideTimer(); </script>";
+            echo "<script type='text/javascript'> timer.style.display = 'none'; </script>";
             echo "<h3>Félicitations, vous avez terminé le quiz !</h3>";
-            //echo "<p>Vous avez réussi ".$nbReussis." question(s).</p>";
-            //echo "<p>Vous avez échoué à ".$nbEchoues." question(s).</p>";
-            //echo "<p>En tout, vous avez donné ".$mauvaisesRep." mauvaise(s) réponse(s).</p>";
+            //echo "<p>Vous avez bien répondu à ".$_SESSION['nombreBonnesReponses']." questions</p>";
             //Bouton revenir à l'accueil et recommencer
             unset($_SESSION['qcmDejaPasses']);
             unset($_SESSION['numQcm']);
             unset($_SESSION['unQcmAuPif']);
             unset($_SESSION['kanjiPossibles']);
+            unset($_SESSION['nombreBonnesReponses']);
         }
     }
 }
@@ -97,6 +100,7 @@ function afficherUnQcmEnSession(){
     $kanjiPossibles = $_SESSION['kanjiPossibles'];
     
     echo "<div id='qcm'>";
+    echo "<progress id='progress_bar' value='".($nombreDeQcmsActuel-count($qcmRestants))."' max='".$nombreDeQcmsActuel."'></progress>";
     echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
     echo "<h3>Question ".$_SESSION['numQcm']." : ".$unQcmSession->getTexteQuestion()."</h3><br>";
 

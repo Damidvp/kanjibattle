@@ -28,7 +28,7 @@
                     <p>Bonne réponse, bravo !</p>
                 </div>
                 <div id="mauvaise_reponse">
-                    <p>Ce n'est pas la bonne réponse, essayez encore !</p>
+                    <p>Mauvaise réponse, dommage...</p>
                 </div>
                 <div id="temps_ecoule">
                     <p>Temps écoulé, voici la bonne réponse !</p>
@@ -40,7 +40,6 @@
             <a href="../controler/ctrl_leave_qcm.php"><div id="retour">Retour à l'accueil</div></a>
         </div>
         <br>
-        
 
         <?php include "../pages/view_footer.php"; ?>
 

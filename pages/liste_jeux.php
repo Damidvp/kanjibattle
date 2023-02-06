@@ -42,7 +42,7 @@
 
         <div id="contact">
             <h2>Des suggestions ?</h2>
-            <button id="btn_contact">Contactez-nous</h2>
+            <button id="btn_contact" onclick="window.location.href = 'contact.php'">Contactez-nous</h2>
         </div>
 
         </div>

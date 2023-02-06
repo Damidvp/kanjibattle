@@ -1,11 +1,3 @@
-var nbQcmsReussis = 0;
-var nbQcmsEchoues = 0;
-var nbMauvaisesReponses = 0;
-
-document.cookie = "qcmReussis = " + nbQcmsReussis + "; ";
-document.cookie = document.cookie + "qcmEchoues = " + nbQcmsEchoues + "; ";
-document.cookie = document.cookie + "mauvaisesReponses = " + nbMauvaisesReponses + "; ";
-
 $(document).ready(function() {
 
     //Récupération des éléments par leur id
@@ -25,6 +17,7 @@ $(document).ready(function() {
 
     let timer = document.getElementById("timer");
     let temps = 11;
+    var aBienRepondu = 0;
 
     let intervalTemps = setInterval(timerDown, 1000);
 
@@ -39,15 +32,12 @@ $(document).ready(function() {
             affTexteMauvaiseReponse();
             event.target.style.backgroundColor = "#FF1414";
             event.target.style.color = "#FFC1C1";
+            btnBon.style.backgroundColor = "#14FF14";
+            btnBon.style.color = "#C1FFC1";
         }
     });
 
     btnQSuivante.addEventListener("click", function(){
-        if(bonneReponse.style.display == "block"){
-            nbQcmsReussis = nbQcmsReussis + 1;
-        } else {
-            nbQcmsEchoues = nbQcmsEchoues + 1;
-        }
         reload();
     });
 
@@ -55,11 +45,6 @@ $(document).ready(function() {
     mauvaiseReponse.style.display = "none";
     tempsEcoule.style.display = "none";
     qSuivante.style.display = "none";
-
-    //Si l'utilisateur rafraîchit ou quitte la page, la session est réinitialisée
-    window.onbeforeunload = function () {
-        return "";
-    }
 
     function reload(){
         qSuivante.style.display = "none";
@@ -74,15 +59,13 @@ $(document).ready(function() {
                 affTexteMauvaiseReponse();
                 event.target.style.backgroundColor = "#FF1414";
                 event.target.style.color = "#FFC1C1";
+                btnBon.style.backgroundColor = "#14FF14";
+                btnBon.style.color = "#C1FFC1";
             }
         });
     }
 
     function affTexteBonneReponse(){
-        //Si le message de mauvaise réponse est déjà affiché, on le retire
-        if(mauvaiseReponse.style.display != "none"){
-            mauvaiseReponse.style.display = "none";
-        }
 
         clearInterval(intervalTemps);
 
@@ -94,13 +77,33 @@ $(document).ready(function() {
 
         //On affiche le message de bonne réponse et le bouton de la question suivante
         bonneReponse.style.display = "block";
+        bonneReponse.style.color = "#37fb4e";
+        bonneReponse.style.backgroundColor = "rgba(55, 250, 60, 0.2)"
+
         qSuivante.style.display = "block";
+
+        aBienRepondu = aBienRepondu + 1;
 
         progression.setAttribute('value', progression.value+1);
     }
 
     function affTexteMauvaiseReponse(){
+
+        clearInterval(intervalTemps);
+
+        //On désactive tous les boutons
+        btnBon.disabled = true;
+        btnMauvais1.disabled = true;
+        btnMauvais2.disabled = true;
+        btnMauvais3.disabled = true;
+
         mauvaiseReponse.style.display = "block";
+        mauvaiseReponse.style.color = "#EE3333";
+        mauvaiseReponse.style.backgroundColor = "rgba(240, 40, 40, 0.2)"
+
+        qSuivante.style.display = "block";
+
+        progression.setAttribute('value', progression.value+1);
     }
 
     function affTexteTempsEcoule(){
@@ -117,13 +120,12 @@ $(document).ready(function() {
         btnBon.style.color = "#C1FFC1";
 
         tempsEcoule.style.display = "block";
+        tempsEcoule.style.color = "#fe881b";
+        tempsEcoule.style.backgroundColor = "rgba(254, 152, 60, 0.2)"
+
         qSuivante.style.display = "block";
 
         progression.setAttribute('value', progression.value+1);
-    }
-
-    function hideTimer(){
-        timer.style.display = "none";
     }
 
     function timerDown(){
