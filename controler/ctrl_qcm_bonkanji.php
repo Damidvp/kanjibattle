@@ -14,16 +14,15 @@ $qcmBKPDO = new QcmBonKanjiPDO();
 $listeQcm = $qcmBKPDO->getAllQcmBonKanjis(); //Liste de tous les QCM
 $nombreDeQcmsActuel = $qcmBKPDO->getNombreTotalQcm(); //On récupère le nombre total de QCMs
 
+//Initialisation des sessions
 if(!isset($_SESSION['qcmDejaPasses'])){
     $_SESSION['qcmDejaPasses'] = array();
 }
 if(!isset($_SESSION['numQcm'])){
     $_SESSION['numQcm'] = 1;
 }
-if(!isset($_SESSION['nombreBonnesReponses'])){
-    $_SESSION['nombreBonnesReponses'] = 0;
-}
 
+//Si la page est rafraîchie, on réaffiche le QCM sur lequel on était
 if(!isset($_GET['action'])){
     if(isset($_SESSION['unQcmAuPif'])){
         afficherUnQcmEnSession();
@@ -31,19 +30,22 @@ if(!isset($_GET['action'])){
         afficherUnQcm();
     }
 } else {
-    $_SESSION['nombreBonnesReponses'] += (int) "<script type ='text/javascript'> document.write(aBienRepondu); </script>";
+    //On affiche tous les QCMs un par un
     if(isset($_GET['action']) && $_GET['action'] == 'newQcm'){
         if(count($_SESSION['qcmDejaPasses']) < $nombreDeQcmsActuel){
             unset($_SESSION['unQcmAuPif']);
             unset($_SESSION['kanjiPossibles']);
             $_SESSION['numQcm']++;
             afficherUnQcm();
+        //Après le dernier QCM, on indique la fin et on affiche le résultat
         } else {
+            $bonnesReponses = "<script> document.getElementById('br').textContent = localStorage.getItem('bonnesReponses'); </script>";
             echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
-            echo "<script type='text/javascript'> timer.style.display = 'none'; </script>";
+            echo "<script> timer.style.display = 'none'; </script>";
             echo "<h3>Félicitations, vous avez terminé le quiz !</h3>";
-            //echo "<p>Vous avez bien répondu à ".$_SESSION['nombreBonnesReponses']." questions</p>";
+            //echo "<p>Vous avez bien répondu à <span id='br'>".convertStringToInt($bonnesReponses)."</span> questions</p>";
             //Bouton revenir à l'accueil et recommencer
+            echo "<script> localStorage.clear(); </script>";
             unset($_SESSION['qcmDejaPasses']);
             unset($_SESSION['numQcm']);
             unset($_SESSION['unQcmAuPif']);
@@ -53,6 +55,7 @@ if(!isset($_GET['action'])){
     }
 }
 
+//Fonction qui choisit un QCM de façon aléatoire et l'affiche
 function afficherUnQcm(){
     global $qcmBKPDO, $kanjiPDO, $nombreDeQcmsActuel;
     $qcmRestants = $qcmBKPDO->getQcmBKSauf($_SESSION['qcmDejaPasses']);
@@ -91,6 +94,7 @@ function afficherUnQcm(){
     echo "</div>";
 }
 
+//Fonction qui affiche le QCM stocké dans la session (en cas de refresh)
 function afficherUnQcmEnSession(){
     global $qcmBKPDO, $kanjiPDO, $nombreDeQcmsActuel;
     $qcmRestants = $qcmBKPDO->getQcmBKSauf($_SESSION['qcmDejaPasses']);
@@ -136,6 +140,15 @@ function insererRandomDans($tableau, $element){
     }
 
     return $nouveauTableau;
+}
+
+//Fonction permettant de convertir une chaîne en un entier (servira pour calculer le nombre de bonnes réponses)
+function convertStringToInt($string){
+    $intReturned = 0;
+    for($i=0; $i<strlen($string); $i++){
+        $intReturned += intval($string[$i]);
+    }
+    return $intReturned;
 }
 
 ?>

@@ -12,9 +12,8 @@ $(document).ready(function(){
         })
 
     };
-    $("body").on('click', "#btn_qsuivante", function(e){
+    $("#btn_qsuivante").on('click', function(e){
         e.preventDefault();
         reloadQcm();
     });
-
 });

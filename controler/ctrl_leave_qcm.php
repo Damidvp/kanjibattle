@@ -1,4 +1,5 @@
 <?php
+    //Détruit la session lorsqu'on quitte la page QCM
     session_start();
     session_unset(); 
     session_destroy();
