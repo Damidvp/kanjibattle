@@ -41,7 +41,5 @@
         </div>
         <br>
 
-        <?php include "../pages/view_footer.php"; ?>
-
     </body>
 </html>

@@ -14,7 +14,7 @@
         <div id="menu">
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="pages/liste_kanji.php">Listes</a></li>
+                <li><a href="pages/liste_kanji.php">Recherche</a></li>
                 <li><a href="pages/liste_jeux.php">Jeux</a></li>
                 <li><a href="pages/contact.php">Contact</a></li>
             </ul>

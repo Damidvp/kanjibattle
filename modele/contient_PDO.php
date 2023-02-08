@@ -77,6 +77,27 @@ class ContientPDO{
         return $contenuDansMot;
     }
     
+    public function getContientByKanji($kanji){
+        $cnxDB = connectionDB();
+        $motsDuKanji = array();
+
+        $motPDO = new MotPDO();
+        $kanjiPDO = new KanjiPDO();
+
+        $requeteSql = "SELECT * FROM contient WHERE idKanji = '".$kanji."';";
+        $contientStatement = $cnxDB->prepare($requeteSql);
+        $contientStatement->execute();
+        $contients = $contientStatement->fetchAll();
+
+        foreach($contients as $contient){
+            $leMot = $motPDO->getMotByNum($contient['numM']);
+            $leKanji = $kanjiPDO->getKanjiByKanji($contient['idKanji']);
+            $occContient = new Contient($leMot, $leKanji, $contient['position'], $contient['lectureKunOn']);
+            array_push($motsDuKanji, $occContient);
+        }
+
+        return $motsDuKanji;
+    }
 
 }
 

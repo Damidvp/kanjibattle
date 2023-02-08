@@ -13,39 +13,74 @@
         $seLitOnPDO = new SeLitOnPDO();
         $lectureKunPDO = new LectureKunPDO();
         $lectureOnPDO = new LectureOnPDO();
+        $contientPDO = new ContientPDO();
+        $motPDO = new MotPDO();
 
-        $tousLesKanjis = $kanjiPDO->getAllKanji();
+        if(isset($_GET['sub_search'])){
+            $kanjisTrouve = $kanjiPDO->searchKanji($_GET['search']);
+            
+            echo "<div id='lstkanji'>";
 
-        echo "<div id='lstkanji'>";
-        echo "<h2>Liste des kanji actuels</h2>";
-        
+            if(count($kanjisTrouve) > 0){
+                
+                echo "<h2>Résultat trouvé : </h2>";
+                echo "<br>";
+                
+                foreach($kanjisTrouve as $kanjiTrouve){
 
-        foreach($tousLesKanjis as $kanji){
-            echo "<div class='lkanji'>";
-            echo "<div id='d_kanji'><span class='chjap'><span class='kanji'>".$kanji->getKanji()."</span></span></div>";
-            echo "<div id='d_lect'>";
-            echo "<div id='d_lect_kun'>Lectures KUN : ";
-            $lecturesKun = $seLitKunPDO->getSeLitKunByKanji($kanji->getKanji());
-            if (count($lecturesKun)==0){
-                echo "<i>Aucune</i>";
-            } else {
-                foreach($lecturesKun as $uneLectureKun){
-                    echo "<span class='chjap'>".$uneLectureKun->getLaLectureKun()->getLecture()."  </span>";
+                    echo "<div class='lkanji'>";
+                    echo "<div class='d_kanji'><span class='chjap'><span class='kanji'>".$kanjiTrouve->getKanji()."</span></span></div>";
+                    echo "<div class='d_lect'>";
+                    echo "<h3>Informations</h3>";
+                    echo "<div class='traits'> Nombre de traits : ".$kanjiTrouve->getNbTraits()."</div>";
+                    echo "<div class='d_lect_kun'>Lecture KUN : ";
+                    $lecturesKun = $seLitKunPDO->getSeLitKunByKanji($kanjiTrouve->getKanji());
+                    if (count($lecturesKun)==0){
+                        echo "<i>Aucune</i>";
+                    } else {
+                        foreach($lecturesKun as $uneLectureKun){
+                            echo "<span class='chjap'>".$uneLectureKun->getLaLectureKun()->getLecture()."  </span>";
+                        }
+                    }
+
+                    echo "</div>";
+                    echo "<div class='d_lect_on'>Lecture ON : ";
+                    $lecturesOn = $seLitOnPDO->getSeLitOnByKanji($kanjiTrouve->getKanji());
+                    if (count($lecturesOn)==0){
+                        echo "<i>Aucune</i>";
+                    } else {
+                        foreach($lecturesOn as $uneLectureOn){
+                            echo "<span class='chjap'>".$uneLectureOn->getLaLectureOn()->getLecture()."  </span>";
+                        }
+                    }
+                    echo "</div>";
+                    $motsDuKanji = $contientPDO->getContientByKanji($kanjiTrouve->getKanji());
+                    echo "<br>";
+                    echo "<div class='mots_kanji'>Mots relatifs<br>";
+                    if(count($motsDuKanji)==0){
+                        echo "<i>Aucun pour l'instant</i>";
+                    } else {
+                        foreach($motsDuKanji as $unMotDuKanji){
+                            $kanjiContenusDansMot = $contientPDO->getContientByMot($unMotDuKanji->getLeMot()->getNumM());
+                            $compositionMot = "";
+                            foreach($kanjiContenusDansMot as $caractere){
+                                $compositionMot .= $caractere->getLeKanji()->getKanji();
+                                if(!empty($unMotDuKanji->getLeMot()->getOkurigana())){
+                                    $compositionMot .= $unMotDuKanji->getLeMot()->getOkurigana();
+                                }
+                            }
+                            echo "<span class='chjap'>".$compositionMot." (".$unMotDuKanji->getLeMot()->getLectureJap().")</span> : ".$motPDO->getMotByNum($unMotDuKanji->getLeMot()->getNumM())->getDesignationFr()."<br>";
+                        }
+                    }
+                    echo "</div></div></div>";
                 }
-            }
-            echo "</div><br>";
-            echo "<div id='d_lect_on'>Lectures ON : ";
-            $lecturesOn = $seLitOnPDO->getSeLitOnByKanji($kanji->getKanji());
-            if (count($lecturesOn)==0){
-                echo "<i>Aucune</i>";
             } else {
-                foreach($lecturesOn as $uneLectureOn){
-                    echo "<span class='chjap'>".$uneLectureOn->getLaLectureOn()->getLecture()."  </span>";
-                }
+                echo "<h2>Aucun résultat</h2>";
             }
-            echo "</div></div></div>";
-            echo "<br><br>";
+            echo "</div>";
         }
+
+        /*
         echo "</div> <div id='lmots'>";
         echo "<h2>Liste des mots de vocabulaire</h2>";
         $motPDO = new MotPDO();
@@ -64,6 +99,6 @@
             echo "<br>";
         }
         echo "</div>";
-
+        */
         
         ?>

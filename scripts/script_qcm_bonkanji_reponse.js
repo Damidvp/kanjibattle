@@ -87,7 +87,7 @@ $(document).ready(function() {
 
         //On affiche le message de bonne réponse et le bouton de la question suivante
         bonneReponse.style.display = "block";
-        bonneReponse.style.color = "#37fb4e";
+        bonneReponse.style.color = "#00b300";
         bonneReponse.style.backgroundColor = "rgba(55, 250, 60, 0.2)"
 
         qSuivante.style.display = "block";

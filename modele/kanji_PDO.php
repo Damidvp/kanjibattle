@@ -55,6 +55,32 @@ class KanjiPDO{
         return $kanjiTrouve;
     }
 
+    //Retourne un résultat de recherche selon les kanji contenus dans $recherche (saisi par l'utilisateur)
+    public function searchKanji($recherche){
+        $cnxDB = connectionDB();
+        $retour = array();
+
+        $options = "";
+        for($i=0; $i<mb_strlen($recherche); $i++){ //mb_strlen permet de gérer les string en multibytes (caractères japonais)
+            $options .= "'".mb_substr($recherche, $i, 1)."'";
+            if($i<(mb_strlen($recherche)-1)){
+                $options .= ", ";
+            }
+        }
+
+        $requeteSql = "SELECT * FROM kanji WHERE idKanji IN (".$options.");";
+        $kanjiStatement = $cnxDB->prepare($requeteSql);
+        $kanjiStatement->execute();
+        $resultat = $kanjiStatement->fetchAll();
+
+        foreach($resultat as $kanji){
+            $occKanji = new Kanji($kanji['idKanji'], $kanji['nbTraits']);
+            array_push($retour, $occKanji);
+        }
+
+        return $retour;
+    }
+
 }
 
 ?>

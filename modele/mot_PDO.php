@@ -2,6 +2,7 @@
 
 require_once "pdo_connection.php";
 require_once "../classes/mot.php";
+require_once "../classes/kanji.php";
 
 class MotPDO{
 
