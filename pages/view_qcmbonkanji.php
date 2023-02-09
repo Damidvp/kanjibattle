@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../styles/styles_qcm_bonkanji.css">
         <link rel="shortcut icon" href="../img/漢字_nobg.png">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="../scripts/script_qcm_bonkanji_reponse.js"></script>
         <script type="text/javascript" src="../scripts/script_afficher_qcm.js"></script>
     </head>
     

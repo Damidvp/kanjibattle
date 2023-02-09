@@ -21,6 +21,9 @@ if(!isset($_SESSION['qcmDejaPasses'])){
 if(!isset($_SESSION['numQcm'])){
     $_SESSION['numQcm'] = 1;
 }
+if(!isset($_SESSION['br'])){
+    $_SESSION['br'] = 0;
+}
 
 //Si la page est rafraîchie, on réaffiche le QCM sur lequel on était
 if(!isset($_GET['action'])){
@@ -32,6 +35,7 @@ if(!isset($_GET['action'])){
 } else {
     //On affiche tous les QCMs un par un
     if(isset($_GET['action']) && $_GET['action'] == 'newQcm'){
+        $_SESSION['br'] += $_GET['bonneRep'];
         if(count($_SESSION['qcmDejaPasses']) < $nombreDeQcmsActuel){
             unset($_SESSION['unQcmAuPif']);
             unset($_SESSION['kanjiPossibles']);
@@ -39,18 +43,21 @@ if(!isset($_GET['action'])){
             afficherUnQcm();
         //Après le dernier QCM, on indique la fin et on affiche le résultat
         } else {
-            $bonnesReponses = "<script> document.getElementById('br').textContent = localStorage.getItem('bonnesReponses'); </script>";
+            $nbBonnesReponses = $_SESSION['br'];
+            $nbMauvaisesReponses = $nombreDeQcmsActuel - $nbBonnesReponses;
             echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
             echo "<script> timer.style.display = 'none'; </script>";
             echo "<h3>Félicitations, vous avez terminé le quiz !</h3>";
-            //echo "<p>Vous avez bien répondu à <span id='br'>".convertStringToInt($bonnesReponses)."</span> questions</p>";
-            //Bouton revenir à l'accueil et recommencer
-            echo "<script> localStorage.clear(); </script>";
+            echo "<div id='resultat'>";
+            echo "<p id='p_br'>Bonnes réponses : <span id='br'>".$nbBonnesReponses."</span></p>";
+            echo "<p id='p_mr'>Mauvaises réponses / Temps écoulé : <span id='mr'>".$nbMauvaisesReponses."</span></p>";
+            echo "</div>";
+            echo "<script> delete sessionStorage['bonnesReponses']; </script>";
             unset($_SESSION['qcmDejaPasses']);
             unset($_SESSION['numQcm']);
             unset($_SESSION['unQcmAuPif']);
             unset($_SESSION['kanjiPossibles']);
-            unset($_SESSION['nombreBonnesReponses']);
+            unset($_SESSION['br']);
         }
     }
 }

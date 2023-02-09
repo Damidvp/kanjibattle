@@ -1,7 +1,4 @@
-if(localStorage.length == 0){
-    localStorage.setItem('bonnesReponses', 0);
-    localStorage.setItem('mauvaisesReponses', 0);
-}
+localStorage.setItem('br', 0);
 
 $(document).ready(function() {
 
@@ -16,15 +13,16 @@ $(document).ready(function() {
     let btnMauvais2 = document.getElementById("btnX2");
     let btnMauvais3 = document.getElementById("btnX3");
 
-    let btnQSuivante = document.getElementById("btn_qsuivante");
-
     let progression = document.getElementById("progress_bar");
 
     let timer = document.getElementById("timer");
     let temps = 11;
-    var aBienRepondu = 0;
 
     let intervalTemps = setInterval(timerDown, 1000);
+
+    window.onbeforeunload = function() {
+        return "Cette action vous redirigera vers l'accueil. Souhaitez-vous continuer ?";
+    }
 
     //Quand on clique sur une mauvaise réponse -> message de mauvaise réponse
     //Quand on clique sur la bonne réponse -> message de bonne réponse
@@ -33,6 +31,8 @@ $(document).ready(function() {
             affTexteBonneReponse();
             event.target.style.backgroundColor = "#14FF14";
             event.target.style.color = "#FEFEFE";
+            localStorage.clear();
+            localStorage.setItem('br', 1);
 
         } else if((event.target.id == 'btnX1') || (event.target.id == 'btnX2') || (event.target.id == 'btnX3')){
             affTexteMauvaiseReponse();
@@ -43,36 +43,10 @@ $(document).ready(function() {
         }
     });
 
-    btnQSuivante.addEventListener("click", function(){
-        countReponses();
-        reload();
-    });
-
     bonneReponse.style.display = "none";
     mauvaiseReponse.style.display = "none";
     tempsEcoule.style.display = "none";
     qSuivante.style.display = "none";
-
-    //Remise à zéro des événements
-    function reload(){
-        qSuivante.style.display = "none";
-        bonneReponse.style.display = "none";
-
-        document.body.addEventListener("click", function(event){
-            if(event.target.id == 'btnV'){
-                affTexteBonneReponse();
-                event.target.style.backgroundColor = "#14FF14";
-                event.target.style.color = "#C1FFC1";
-
-            } else if((event.target.id == 'btnX1') || (event.target.id == 'btnX2') || (event.target.id == 'btnX3')){
-                affTexteMauvaiseReponse();
-                event.target.style.backgroundColor = "#FF1414";
-                event.target.style.color = "#FFC1C1";
-                btnBon.style.backgroundColor = "#14FF14";
-                btnBon.style.color = "#C1FFC1";
-            }
-        });
-    }
 
     //Gère les événements en cas de bonne réponse
     function affTexteBonneReponse(){
@@ -88,13 +62,12 @@ $(document).ready(function() {
         //On affiche le message de bonne réponse et le bouton de la question suivante
         bonneReponse.style.display = "block";
         bonneReponse.style.color = "#00b300";
-        bonneReponse.style.backgroundColor = "rgba(55, 250, 60, 0.2)"
+        bonneReponse.style.backgroundColor = "rgba(55, 250, 60, 0.2)";
 
         qSuivante.style.display = "block";
 
-        aBienRepondu = aBienRepondu + 1;
-
         progression.setAttribute('value', progression.value+1);
+
     }
 
     //Gère les événements en cas de mauvaise réponse
@@ -110,7 +83,7 @@ $(document).ready(function() {
 
         mauvaiseReponse.style.display = "block";
         mauvaiseReponse.style.color = "#EE3333";
-        mauvaiseReponse.style.backgroundColor = "rgba(240, 40, 40, 0.2)"
+        mauvaiseReponse.style.backgroundColor = "rgba(240, 40, 40, 0.2)";
 
         qSuivante.style.display = "block";
 
@@ -133,7 +106,7 @@ $(document).ready(function() {
 
         tempsEcoule.style.display = "block";
         tempsEcoule.style.color = "#fe881b";
-        tempsEcoule.style.backgroundColor = "rgba(254, 152, 60, 0.2)"
+        tempsEcoule.style.backgroundColor = "rgba(254, 152, 60, 0.2)";
 
         qSuivante.style.display = "block";
 
@@ -147,19 +120,6 @@ $(document).ready(function() {
         if(temps==0){
             clearInterval(intervalTemps);
             affTexteTempsEcoule();
-        }
-    }
-
-    //Fonction qui compte le nombre de bonnes et de mauvaises réponses
-    function countReponses(){
-        if(bonneReponse.style.display == "block"){
-            let valueBR = localStorage.getItem('bonnesReponses');
-            console.log('value BR : ' + valueBR);
-            localStorage.setItem('bonnesReponses', valueBR+1);
-        } else {
-            let valueMR = localStorage.getItem('mauvaisesReponses');
-            console.log('value MR : ' + valueMR);
-            localStorage.setItem('mauvaisesReponses', valueMR+1);
         }
     }
 });
