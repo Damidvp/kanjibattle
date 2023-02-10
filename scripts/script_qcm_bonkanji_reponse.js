@@ -14,15 +14,16 @@ $(document).ready(function() {
     let btnMauvais3 = document.getElementById("btnX3");
 
     let progression = document.getElementById("progress_bar");
+    let etatProgressionIs0 = (progression.value==0) ? true : false;
 
     let timer = document.getElementById("timer");
-    let temps = 11;
+    var temps = 10;
 
     let intervalTemps = setInterval(timerDown, 1000);
 
-    window.onbeforeunload = function() {
-        return "Cette action vous redirigera vers l'accueil. Souhaitez-vous continuer ?";
-    }
+    document.getElementById("timer").style.color = "#daebff";
+    document.getElementById("timer").style.backgroundColor = "#6fb2ff"; 
+    timer.innerText = temps;
 
     //Quand on clique sur une mauvaise réponse -> message de mauvaise réponse
     //Quand on clique sur la bonne réponse -> message de bonne réponse
@@ -33,6 +34,11 @@ $(document).ready(function() {
             event.target.style.color = "#FEFEFE";
             localStorage.clear();
             localStorage.setItem('br', 1);
+            let progress = 1;
+            progression.setAttribute('value', progression.value+progress);
+            if(etatProgressionIs0){
+                progression.setAttribute('value', 1);
+            }
 
         } else if((event.target.id == 'btnX1') || (event.target.id == 'btnX2') || (event.target.id == 'btnX3')){
             affTexteMauvaiseReponse();
@@ -40,6 +46,11 @@ $(document).ready(function() {
             event.target.style.color = "#FFC1C1";
             btnBon.style.backgroundColor = "#14FF14";
             btnBon.style.color = "#C1FFC1";
+            let progress = 1;
+            progression.setAttribute('value', progression.value+progress);
+            if(etatProgressionIs0){
+                progression.setAttribute('value', 1);
+            }
         }
     });
 
@@ -65,9 +76,6 @@ $(document).ready(function() {
         bonneReponse.style.backgroundColor = "rgba(55, 250, 60, 0.2)";
 
         qSuivante.style.display = "block";
-
-        progression.setAttribute('value', progression.value+1);
-
     }
 
     //Gère les événements en cas de mauvaise réponse
@@ -86,8 +94,6 @@ $(document).ready(function() {
         mauvaiseReponse.style.backgroundColor = "rgba(240, 40, 40, 0.2)";
 
         qSuivante.style.display = "block";
-
-        progression.setAttribute('value', progression.value+1);
     }
 
     //Gère les évenemnts en cas de temps écoulé
@@ -110,16 +116,34 @@ $(document).ready(function() {
 
         qSuivante.style.display = "block";
 
-        progression.setAttribute('value', progression.value+1);
     }
 
     //Fonction qui effectue le décompte du timer (s'arrête à 0)
     function timerDown(){
         timer.innerText = temps-1;
         temps = temps <= 0 ? 0 : temps-1; //On diminue le temps de 1 tant qu'il est supérieur à 0
+        if(temps==9){
+            document.getElementById("timer").style.color = "#daebff";
+            document.getElementById("timer").style.backgroundColor = "#6fb2ff"; 
+        }
+        if(temps==4){
+            document.getElementById("timer").style.color = "#cc5c00";
+            document.getElementById("timer").style.backgroundColor = "#ffd5b3"; 
+        }
         if(temps==0){
             clearInterval(intervalTemps);
+            document.getElementById("timer").style.color = "#EE5555";
+            document.getElementById("timer").style.backgroundColor = "#EEAAAA";
             affTexteTempsEcoule();
+            let progress = 1;
+            progression.setAttribute('value', progression.value+progress);
+            if(etatProgressionIs0){
+                progression.setAttribute('value', 1);
+            }
         }
+    }
+
+    function finQcm(){
+        
     }
 });

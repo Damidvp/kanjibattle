@@ -47,6 +47,10 @@ if(!isset($_GET['action'])){
             $nbMauvaisesReponses = $nombreDeQcmsActuel - $nbBonnesReponses;
             echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
             echo "<script> timer.style.display = 'none'; </script>";
+            echo "<script> document.getElementById('d_btn_qsuivante').style.display = 'none'; 
+            document.getElementById('bonne_reponse').style.display = 'none'; 
+            document.getElementById('mauvaise_reponse').style.display = 'none'; 
+            document.getElementById('temps_ecoule').style.display = 'none'; </script>";
             echo "<h3>Félicitations, vous avez terminé le quiz !</h3>";
             echo "<div id='resultat'>";
             echo "<p id='p_br'>Bonnes réponses : <span id='br'>".$nbBonnesReponses."</span></p>";
@@ -111,8 +115,7 @@ function afficherUnQcmEnSession(){
     $kanjiPossibles = $_SESSION['kanjiPossibles'];
     
     echo "<div id='qcm'>";
-    echo "<progress id='progress_bar' value='".($nombreDeQcmsActuel-count($qcmRestants))."' max='".$nombreDeQcmsActuel."'></progress>";
-    echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
+    echo "<progress id='progress_bar' value='".(($nombreDeQcmsActuel-count($qcmRestants))-1)."' max='".$nombreDeQcmsActuel."'></progress>";
     echo "<h3>Question ".$_SESSION['numQcm']." : ".$unQcmSession->getTexteQuestion()."</h3><br>";
 
     $numIdBtn = 1; //Compteur pour différencier les ID de boutons
