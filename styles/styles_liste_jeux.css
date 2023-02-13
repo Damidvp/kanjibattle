@@ -31,6 +31,40 @@
     color:#ff4500;
 }
 
+#sl_niveau, label{
+    font-size:1.3em;
+    margin-bottom:0.8em;
+}
+
+#sl_niveau{
+    background-color:#313131;
+    color:#80ccff;
+    border-radius: 3px;
+}
+
+#sl_niveau #all{
+    color:#80ccff;
+}
+#sl_niveau #N5{
+    color:#4dff4d;
+}
+#sl_niveau #N4{
+    color:#c9ff33;
+}
+#sl_niveau #N3{
+    color:#fff71a;
+}
+#sl_niveau #N2{
+    color:#ffb61a;
+}
+#sl_niveau #N1{
+    color:#ff471a;
+}
+
+label{
+    font-weight:bold;
+}
+
 .jeux{
     margin-left:auto;
     margin-right:auto;

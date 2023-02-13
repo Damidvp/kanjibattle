@@ -13,10 +13,10 @@
         <a href="index.php"><img id="logo" src="img/漢字_nobg.png"></a>
         <div id="menu">
             <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="pages/liste_kanji.php">Recherche</a></li>
-                <li><a href="pages/liste_jeux.php">Jeux</a></li>
-                <li><a href="pages/contact.php">Contact</a></li>
+                <li><a class="a_menu" href="index.php" active>Accueil</a></li>
+                <li><a class="a_menu" href="pages/liste_kanji.php">Recherche</a></li>
+                <li><a class="a_menu" href="pages/liste_jeux.php">Jeux</a></li>
+                <li><a class="a_menu" href="pages/contact.php">Contact</a></li>
             </ul>
         </div>
     </header>
@@ -41,7 +41,7 @@
         <img class = "img_section" src="img/shodo.jpg">
         <p>J'ai réalisé ce site pour les personnes ayant déjà quelques bases en langue japonaise (connaissance des kana), et qui apprennent les kanji.
             Je suis moi-même passé par ce calvaire, et j'ai appris à mes dépends que les bouquins d'université n'aident pas vraiment...
-            J'espère donc pouvoir proposer une solution plus efficace aux étudiants :)</p>
+            J'espère donc pouvoir proposer une solution plus efficace aux étudiants !</p>
         <p>Allier mes deux passions, la culture japonaise et le développement web, a donné naissance à ce projet. Je pense qu'en s'amusant, on peut apprendre de manière plus efficace.
             Alors j'espère que vous vous y plairez !</p>
         </div>

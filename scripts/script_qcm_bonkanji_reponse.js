@@ -13,6 +13,8 @@ $(document).ready(function() {
     let btnMauvais2 = document.getElementById("btnX2");
     let btnMauvais3 = document.getElementById("btnX3");
 
+    let btnQSuivante = document.getElementById("btn_qsuivante");
+
     let progression = document.getElementById("progress_bar");
     let etatProgressionIs0 = (progression.value==0) ? true : false;
 
@@ -20,6 +22,10 @@ $(document).ready(function() {
     var temps = 10;
 
     let intervalTemps = setInterval(timerDown, 1000);
+
+    //On évite le multi-clic pour skipper les questions
+    btnQSuivante.disabled = false;
+    btnQSuivante.addEventListener("click", function() { btnQSuivante.disabled = true; });
 
     document.getElementById("timer").style.color = "#daebff";
     document.getElementById("timer").style.backgroundColor = "#6fb2ff"; 
@@ -141,9 +147,5 @@ $(document).ready(function() {
                 progression.setAttribute('value', 1);
             }
         }
-    }
-
-    function finQcm(){
-        
     }
 });

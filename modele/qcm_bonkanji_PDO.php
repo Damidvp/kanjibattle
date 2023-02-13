@@ -30,6 +30,37 @@ class QcmBonKanjiPDO{
         return $allQcmBKs;
     }
 
+    public function getQcmBKByLevel($niveau){
+        $cnxDB = connectionDB();
+        $qcmsByNiveau = array();
+
+        $kanjiPDO = new KanjiPDO();
+
+        $requeteSql = "SELECT * FROM qcm_bonkanji, kanji WHERE kanji.idKanji = qcm_bonkanji.idKanji AND kanji.niveau = '".$niveau."';";
+        $qcmBKStatement = $cnxDB->prepare($requeteSql);
+        $qcmBKStatement->execute();
+        $qcmBKs = $qcmBKStatement->fetchAll();
+
+        foreach($qcmBKs as $qcmBK){
+            $leKanji = $kanjiPDO->getKanjiByKanji($qcmBK['idKanji']);
+            $occQcmBK = new QcmBonKanji($qcmBK['numQBK'], $leKanji, $qcmBK['texteQuestion']);
+            array_push($qcmsByNiveau, $occQcmBK);
+        }
+
+        return $qcmsByNiveau;
+    }
+
+    public function getNombreTotalQcmByLevel($niveau){
+        $cnxDB = connectionDB();
+
+        $requeteSql = "SELECT COUNT(*) AS NombreQcmsNiveau FROM qcm_bonkanji, kanji WHERE kanji.idKanji = qcm_bonkanji.idKanji AND niveau = '".$niveau."';";
+        $qcmBKStatement = $cnxDB->prepare($requeteSql);
+        $qcmBKStatement->execute();
+        $resultat = $qcmBKStatement->fetch();
+
+        return $resultat['NombreQcmsNiveau'];
+    }
+
     //Retourne un QCM selon son numéro dans la base
     public function getQcmBKByNum($numQBK){
         $cnxDB = connectionDB();
@@ -62,7 +93,7 @@ class QcmBonKanjiPDO{
     }
 
     //Retourne une liste de QCM a l'exception du ou des QCM du tableau en paramètre (permettra de récupérer les QCM non encore passés dans une session)
-    public function getQcmBKSauf($tabQcm){
+    public function getQcmBKSauf($tabQcm, $niveau){
         $cnxDB = connectionDB();
         $qcmBKs = array();
         $restrictionsRequete = "";
@@ -74,15 +105,18 @@ class QcmBonKanjiPDO{
                 $restrictionsRequete = $restrictionsRequete." numQBK != ".$unQcm->getNumQBK();
                 if(array_key_exists(array_search($unQcm, $tabQcm)+1, $tabQcm)){
                     $restrictionsRequete = $restrictionsRequete." AND"; //Si il y a encore un ou des éléments dans le tableau, on rajoute AND à la requête
-                } else {
-                    $restrictionsRequete = $restrictionsRequete.";";//Sinon, on termine notre requête (;)
                 }
             }
         } else {
-            $restrictionsRequete =" 1;";
+            $restrictionsRequete =" 1";
+        }
+        if($niveau == "all"){
+            $restrictionsRequete = $restrictionsRequete.";";//Sinon, on termine notre requête (;)
+        } else {
+            $restrictionsRequete = $restrictionsRequete." AND niveau = '".$niveau."';";
         }
 
-        $requeteSql = "SELECT * FROM qcm_bonkanji WHERE".$restrictionsRequete;
+        $requeteSql = "SELECT * FROM qcm_bonkanji, kanji WHERE kanji.idKanji = qcm_bonkanji.idKanji AND".$restrictionsRequete;
         $qcmBKStatement = $cnxDB->prepare($requeteSql);
         $qcmBKStatement->execute();
         $resultQcmBKs = $qcmBKStatement->fetchAll();

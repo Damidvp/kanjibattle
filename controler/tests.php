@@ -32,6 +32,7 @@
                     echo "<div class='d_kanji'><span class='chjap'><span class='kanji'>".$kanjiTrouve->getKanji()."</span></span></div>";
                     echo "<div class='d_lect'>";
                     echo "<h3>Informations</h3>";
+                    echo "<div class='niveau'> Niveau ".$kanjiTrouve->getNiveau()."</div><br>";
                     echo "<div class='traits'> Nombre de traits : ".$kanjiTrouve->getNbTraits()."</div>";
                     echo "<div class='d_lect_kun'>Lecture KUN : ";
                     $lecturesKun = $seLitKunPDO->getSeLitKunByKanji($kanjiTrouve->getKanji());
@@ -39,7 +40,7 @@
                         echo "<i>Aucune</i>";
                     } else {
                         foreach($lecturesKun as $uneLectureKun){
-                            echo "<span class='chjap'>".$uneLectureKun->getLaLectureKun()->getLecture()."  </span>";
+                            echo "<span class='chjap'>".$uneLectureKun->getLaLectureKun()->getLecture()."　</span>";
                         }
                     }
 
@@ -50,7 +51,7 @@
                         echo "<i>Aucune</i>";
                     } else {
                         foreach($lecturesOn as $uneLectureOn){
-                            echo "<span class='chjap'>".$uneLectureOn->getLaLectureOn()->getLecture()."  </span>";
+                            echo "<span class='chjap'>".$uneLectureOn->getLaLectureOn()->getLecture()."　</span>";
                         }
                     }
                     echo "</div>";
@@ -79,26 +80,5 @@
             }
             echo "</div>";
         }
-
-        /*
-        echo "</div> <div id='lmots'>";
-        echo "<h2>Liste des mots de vocabulaire</h2>";
-        $motPDO = new MotPDO();
-        $contientPDO = new ContientPDO();
-        $tousLesMots = $motPDO->getAllMots();
-
-        foreach($tousLesMots as $unMot){
-            $leMotContientKanjis = $contientPDO->getContientByMot($unMot->getNumM());
-            foreach($leMotContientKanjis as $kanjiContenu){
-                echo "<span class='chjap'>".$kanjiContenu->getLeKanji()->getKanji()."</span>";
-                if(!empty($unMot->getOkurigana())){
-                    echo $unMot->getOkurigana();
-                }
-            }
-            echo " (<span class='chjap'>".$unMot->getLectureJap()."</span>) désigne en français : ".$unMot->getDesignationFr();
-            echo "<br>";
-        }
-        echo "</div>";
-        */
         
-        ?>
+?>
