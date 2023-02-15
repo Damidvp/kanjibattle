@@ -35,37 +35,31 @@ if(isset($_GET['niveau'])){
         case "all":
             $listeQcm = $qcmBKPDO->getAllQcmBonKanjis(); //Liste de tous les QCM;
             $_SESSION['nombreDeQcmsActuel'] = 20;
-            echo "<div id='niveau_actuel'>Tous niveaux</div>";
             break;
         case "N5":
             $listeQcm = $qcmBKPDO->getQcmBKByLevel("N5");
             $_SESSION['nombreDeQcmsActuel'] = $qcmBKPDO->getNombreTotalQcmByLevel("N5");
             $_SESSION['niveauActuel'] = "N5";
-            echo "<div id='niveau_actuel'>Niveau ".($_GET['niveau'])."</div>";
             break;
         case "N4":
             $listeQcm = $qcmBKPDO->getQcmBKByLevel("N4");
             $_SESSION['nombreDeQcmsActuel'] = $qcmBKPDO->getNombreTotalQcmByLevel("N4");
             $_SESSION['niveauActuel'] = "N4";
-            echo "<div id='niveau_actuel'>Niveau ".($_GET['niveau'])."</div>";
             break;
         case "N3":
             $listeQcm = $qcmBKPDO->getQcmBKByLevel("N3");
             $_SESSION['nombreDeQcmsActuel'] = $qcmBKPDO->getNombreTotalQcmByLevel("N3");
             $_SESSION['niveauActuel'] = "N3";
-            echo "<div id='niveau_actuel'>Niveau ".($_GET['niveau'])."</div>";
             break;
         case "N2":
             $listeQcm = $qcmBKPDO->getQcmBKByLevel("N2");
             $_SESSION['nombreDeQcmsActuel'] = $qcmBKPDO->getNombreTotalQcmByLevel("N2");
             $_SESSION['niveauActuel'] = "N2";
-            echo "<div id='niveau_actuel'>Niveau ".($_GET['niveau'])."</div>";
             break;
         case "N1":
             $listeQcm = $qcmBKPDO->getQcmBKByLevel("N1");
             $_SESSION['nombreDeQcmsActuel'] = $qcmBKPDO->getNombreTotalQcmByLevel("N1");
             $_SESSION['niveauActuel'] = "N1";
-            echo "<div id='niveau_actuel'>Niveau ".($_GET['niveau'])."</div>";
             break;
     }
 } else {
@@ -136,6 +130,11 @@ function afficherUnQcm(){
     $_SESSION['kanjiPossibles'] = $kanjiPossibles;
     
     echo "<div id='qcm'>";
+    if($_SESSION['niveauActuel'] != 'all'){
+        echo "<div id='d_niveau'>Niveau ".$_SESSION['niveauActuel']."</div>";
+    } else {
+        echo "<div id='d_niveau'>Tous niveaux</div>";
+    }
     echo "<progress id='progress_bar' value='".(count($_SESSION['qcmDejaPasses'])-1)."' max='".$_SESSION['nombreDeQcmsActuel']."'></progress>";
     echo "<script type='text/javascript' src='../scripts/script_qcm_bonkanji_reponse.js'></script>";
     echo "<h3>Question ".$_SESSION['numQcm']." : ".$unQcmAuPif->getTexteQuestion()."</h3><br>";
@@ -149,7 +148,7 @@ function afficherUnQcm(){
         } else {
             $numIdBtn++;
         }
-        echo "<button class='btn_rep' id='".$idBtn."'><span class='chjap'>".$uneReponse->getKanji()."</span></button>";
+        echo "<span class='chjap'><button class='btn_rep' id='".$idBtn."'>".$uneReponse->getKanji()."</button></span>";
     }
     echo "</div><br>";
     echo "</div>";
@@ -165,6 +164,11 @@ function afficherUnQcmEnSession(){
     $kanjiPossibles = $_SESSION['kanjiPossibles'];
     
     echo "<div id='qcm'>";
+    if($_SESSION['niveauActuel'] != 'all'){
+        echo "<div id='d_niveau'>Niveau ".$_SESSION['niveauActuel']."</div>";
+    } else {
+        echo "<div id='d_niveau'>Tous niveaux</div>";
+    }
     echo "<progress id='progress_bar' value='".(($_SESSION['nombreDeQcmsActuel']-count($qcmRestants))-1)."' max='".$_SESSION['nombreDeQcmsActuel']."'></progress>";
     echo "<h3>Question ".$_SESSION['numQcm']." : ".$unQcmSession->getTexteQuestion()."</h3><br>";
 

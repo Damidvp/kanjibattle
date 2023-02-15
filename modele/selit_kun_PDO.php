@@ -19,7 +19,7 @@ class SeLitKunPDO{
         $lectureKunPDO = new LectureKunPDO();
         $kanjiPDO = new KanjiPDO();
 
-        $requeteSql = "SELECT * FROM selit_kun";
+        $requeteSql = "SELECT * FROM selit_kun ORDER BY numLK;";
         $seLitKunStatement = $cnxDB->prepare($requeteSql);
         $seLitKunStatement->execute();
         $seLitKuns = $seLitKunStatement->fetchAll();
