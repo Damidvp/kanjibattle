@@ -2,10 +2,14 @@
 <html>
     <head> 
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/styles_global.css">
         <link rel="stylesheet" href="../styles/styles_liste_kanji.css">
         <link rel="shortcut icon" href="../img/漢字_nobg.png">
-        <title>Kanji Battle - Listes</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        <script src="../scripts/script_reveal_div.js"></script>
+        <title>Kanji Battle - Rechercher</title>
     </head>
     
     <body>

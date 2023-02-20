@@ -2,6 +2,7 @@
 <html>
     <head> 
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Kanji Battle - QCM Kanji</title>
         <link rel="stylesheet" href="../styles/styles_global.css">
         <link rel="stylesheet" href="../styles/styles_qcm_bonkanji.css">

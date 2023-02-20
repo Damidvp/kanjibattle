@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="../styles/styles_global.css">
         <link rel="stylesheet" href="../styles/styles_contact.css">
         <link rel="shortcut icon" href="../img/漢字_nobg.png">
-        <title>Kanji Battle - Contactez-nous</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        <script src="../scripts/script_reveal_div.js"></script>
+        <title>Kanji Battle - Contact</title>
     </head>
     
     <body>
@@ -13,7 +16,7 @@
 
         <div id="contenu">
 
-        <h2>Vous souhaitez prendre contact ?</h2>
+        <h2 id="h_contact">Vous souhaitez prendre contact ?</h2>
 
         <div id="d_contacter">
 

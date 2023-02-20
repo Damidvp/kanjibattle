@@ -23,7 +23,7 @@
 
             if(count($kanjisTrouve) > 0){
                 
-                echo "<h2>Résultat trouvé : </h2>";
+                echo "<h2 class='h_resultat'>Résultat trouvé : </h2>";
                 echo "<br>";
                 
                 foreach($kanjisTrouve as $kanjiTrouve){
@@ -76,7 +76,7 @@
                     echo "</div></div></div>";
                 }
             } else {
-                echo "<h2>Aucun résultat</h2>";
+                echo "<h2 class='h_resultat'>Aucun résultat</h2>";
             }
             echo "</div>";
         }

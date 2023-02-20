@@ -66,15 +66,19 @@ label{
 }
 
 .jeux{
+    visibility: hidden;
+    
     margin-left:auto;
     margin-right:auto;
-    margin-top:5em;
-    margin-bottom:5em;
+    margin-top:4em;
+    margin-bottom:8em;
     padding:1.2em;
+
+    font-size:1.7em;
 
     border-radius:15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width:50%;
+    width:70%;
     
     background-color:#f3f3f3;
 }
@@ -97,9 +101,12 @@ label{
 }
 
 #contact{
+    visibility: hidden;
+
     background-color:#f3f3f3;
     margin-top:3em;
     margin-bottom:3em;
+    font-size:1.6em;
 
     padding-top:0.5em;
     padding-bottom:0.5em;

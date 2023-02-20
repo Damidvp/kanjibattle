@@ -13,6 +13,10 @@
     row-gap:1em;
 }
 
+html.sr .lkanji{
+    visibility: hidden;
+}
+
 .lkanji{
     left: 0;
     display: flex;
@@ -53,6 +57,10 @@ h3 {
     border-radius:5px;
 }
 
+#d_search{
+    visibility: hidden;
+}
+
 #sub_search{
     border-style:none;
     border-radius: 15px;
@@ -73,4 +81,8 @@ h3 {
 
 .niveau{
     font-size:1.4em;
+}
+
+.h_resultat{
+    visibility:hidden;
 }

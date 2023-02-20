@@ -91,3 +91,19 @@ footer p{
 #construction {
     font-weight: bold;
 }
+
+#github{
+    font-style:normal;
+}
+
+#github a{
+    text-decoration:none;
+    font-weight:bold;
+    color:#2facff;
+
+    transition: color 0.2s;
+}
+
+#github a:hover{
+    color:#ff4500;
+}

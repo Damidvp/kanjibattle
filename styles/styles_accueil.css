@@ -1,46 +1,106 @@
+@media only screen and (min-width: 992px) {
+
+    #principe, #apropos {
+        margin-top: 3em;
+        margin-bottom: 9em;
+        font-size:1.7em;
+    }  
+
+    #jouer {
+        font-size:1.6em;
+    }
+
+    .img_section img{
+        margin-right:1.1em;
+        float:left;
+    }
+
+    button{
+        height:3em;
+        width:10em;
+        font-size:1.8em;
+        
+        border-radius: 10px 35px 10px 35px;
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+    .img_section{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    button{
+        height:2em;
+        width:8em;
+        font-size:1.4em;
+
+        margin:0 1em 1em 1em;
+        font-size:1.5em;
+
+        border-radius: 5px 17px 5px 17px;
+    }
+
+    #jouer{
+        font-size:1.4em;
+    }
+
+    #principe, #apropos{
+        margin-top: 2em;
+        margin-bottom: 7em;
+
+        font-size:1.3em;
+    }
+}
+
+html.sr .reveal{
+    visibility: hidden;
+}
+
+#jouer {
+    width:100%;
+    margin-bottom:5em;
+    padding-top:0.6em;
+    padding-bottom:1em;
+
+    background-color:#f3f3f3;
+}
+
 #principe, #apropos {
-    width: 75%;
-    margin-top: 3.4em;
-    margin-bottom: 10em;
+    width: 85%;
+
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.img_section img{
+    width:19em;
+    height:12.5em;
+}
+
+.img_section{
+    margin-bottom:0.6em;
     margin-left: auto;
     margin-right: auto;
 }
 
-#jouer {
-    margin-bottom:5em;
-    width:100%;
-    background-color:#f3f3f3;
-    padding-top:0.6em;
-    padding-bottom:0.6em;
-}
-
-.img_section{
-    width:19em;
-    height:12.5em;
-    margin-right:1.1em;
-    margin-bottom:0.6em;
-    float:left;
-}
-
-#boutons, h2, h3 {
-    text-align: center;
-}
-
 button{
-    height:3em;
-    width:10em;
-    margin:0 1em 1em 1em;
-    font-size:1.8em;
-    font-weight: bold;
-
-    border-style: none;
-    border-radius: 10px 35px 10px 35px;
-
     background-color:#313131;
     color: #c4c4c4;
     transition: background-color 0.3s, color 0.3s;
 
+    font-weight: bold;
+    border-style: none;
+
     cursor: pointer;
+}
+
+#boutons, h2, h3 {
+    text-align: center;
 }
 
 button:hover{

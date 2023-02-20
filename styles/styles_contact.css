@@ -52,6 +52,7 @@
 #btn_submit{
     width:8em;
     height:3.2em;
+    margin-bottom:1.2em;
 
     font-size:1.1em;
 
@@ -71,6 +72,8 @@
 }
 
 #envoyer_message{
+    visibility: hidden;
+
     width:46em;
     background-color:#EFEFEF;
     padding-left:1.5em;
@@ -78,4 +81,12 @@
 
     border-radius:20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#coordonnees{
+    visibility: hidden;
+}
+
+#h_contact{
+    visibility: hidden;
 }

@@ -2,11 +2,14 @@
 <html>
     <head> 
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/styles_global.css">
         <link rel="stylesheet" href="../styles/styles_liste_jeux.css">
         <link rel="shortcut icon" href="../img/漢字_nobg.png">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
         <script type="text/javascript" src="../scripts/script_select_on_change.js"></script>
+        <script src="../scripts/script_reveal_div.js"></script>
         <title>Kanji Battle - Jeux</title>
     </head>
     
@@ -14,8 +17,6 @@
         <?php include "../pages/view_header.php"; ?>
 
         <div id="contenu">
-
-        <h2>Liste des jeux actuels</h2>
 
         <div class="jeux">
         <h3 class="btn_jeux">QCM de kanji</h3>
@@ -32,8 +33,8 @@
                     <option id="N1" value="N1">Niveau N1 (expert)</option>
                 </select>
                 <br>
-                <a class="a_jeux" href="view_qcmbonkanji.php" onclick="this.closest('form').submit(); return false;">Jouer solo</a>
-                <a class="a_jeux" href="#">Jouer en multijoueur</a>
+                <a class="a_jeux" href="view_qcmbonkanji.php" onclick="this.closest('form').submit(); return false;">Solo</a>
+                <a class="a_jeux" href="#">Multijoueur</a>
             </form>
         </div>
         </div>
