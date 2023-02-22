@@ -1,20 +1,120 @@
-#contenu{
-    margin-left:auto;
-    margin-right:auto;
-    
-    min-height:100%;
+@media only screen and (min-width: 1520px) {
 
-    text-align:center;
+    .a_jeux{
+        font-size:1.3em;
+    }
+
+    #sl_niveau, label{
+        font-size:1.3em;
+        margin-bottom:0.8em;
+    }
+
+    .jeux{
+        margin-top:3em;
+        margin-bottom:7em;
+
+        font-size:1.5em;
+    }
+
+    .explications{
+        width:60%;
+    }
+
+    .explications p{
+        font-size:1.4em;
+    }
+
+    .p_avenir{
+        font-size:0.7em;
+    }
+
+    #contact{
+        margin-top:3em;
+        margin-bottom:3em;
+        font-size:1.6em;
+    }
+
 }
 
-.btn_jeux, .btn_jeux_avenir{
-    font-size:1.9em;
-    font-weight: bold;
+@media only screen and (max-width: 1520px) {
+
+    .a_jeux{
+        font-size:1.2em;
+    }
+
+    #sl_niveau, label{
+        font-size:1.2em;
+        margin-bottom:0.8em;
+    }
+
+    .jeux{
+        margin-top:2.5em;
+        margin-bottom:6em;
+
+        font-size:1.3em;
+    }
+
+    .explications{
+        width:75%;
+    }
+
+    .explications p{
+        font-size:1.3em;
+    }
+
+    .p_avenir{
+        font-size:0.7em;
+    }
+
+    #contact{
+        margin-top:2em;
+        margin-bottom:3em;
+        font-size:1.3em;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    .a_jeux{
+        font-size:1em;
+    }
+
+    #sl_niveau, label{
+        font-size:1.1em;
+        margin-bottom:0.8em;
+    }
+
+    .jeux{
+        margin-top:2em;
+        margin-bottom:5em;
+
+        font-size:1.1em;
+    }
+
+    .explications{
+        width:85%;
+    }
+
+    .explications p{
+        font-size:1.3em;
+    }
+
+    .p_avenir{
+        font-size:0.7em;
+    }
+
+    #contact{
+        margin-top: 1.5em;
+        margin-bottom:3em;
+        font-size:1em;
+    }
+
 }
 
 .a_jeux{
+    
     text-decoration:none;
-    font-size:1.3em;
     font-weight:bold;
 
     margin-left:1em;
@@ -31,9 +131,46 @@
     color:#ff4500;
 }
 
-#sl_niveau, label{
-    font-size:1.3em;
-    margin-bottom:0.8em;
+.jeux{
+    visibility: hidden;
+    
+    margin-left:auto;
+    margin-right:auto;
+    padding:1.2em;
+
+    border-radius:15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width:80%;
+    
+    background-color:#f3f3f3;
+}
+
+.btn_jeux, .btn_jeux_avenir{
+    font-size:1.5em;
+    font-weight: bold;
+}
+
+.explications{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+label{
+    font-weight:bold;
+}
+
+#contenu{
+    margin-left:auto;
+    margin-right:auto;
+    
+    min-height:100%;
+
+    text-align:center;
+}
+
+.p_avenir{
+    font-style: italic;
+    color:#e00000;
 }
 
 #sl_niveau{
@@ -61,52 +198,10 @@
     color:#ff471a;
 }
 
-label{
-    font-weight:bold;
-}
-
-.jeux{
-    visibility: hidden;
-    
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:4em;
-    margin-bottom:8em;
-    padding:1.2em;
-
-    font-size:1.7em;
-
-    border-radius:15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width:70%;
-    
-    background-color:#f3f3f3;
-}
-
-.explications{
-    width:60%;
-
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.explications p{
-    font-size:1.4em;
-}
-
-.p_avenir{
-    font-style: italic;
-    font-size:0.8em;
-    color:#e00000;
-}
-
 #contact{
     visibility: hidden;
 
     background-color:#f3f3f3;
-    margin-top:3em;
-    margin-bottom:3em;
-    font-size:1.6em;
 
     padding-top:0.5em;
     padding-bottom:0.5em;

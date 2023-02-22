@@ -24,7 +24,6 @@
             if(count($kanjisTrouve) > 0){
                 
                 echo "<h2 class='h_resultat'>Résultat trouvé : </h2>";
-                echo "<br>";
                 
                 foreach($kanjisTrouve as $kanjiTrouve){
 

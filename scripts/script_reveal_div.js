@@ -7,7 +7,7 @@ $(document).ready(function() {
     sr.reveal('.reveal', {duration: 1500, distance: '1.5em', origin: 'bottom'});
 
     //Effets "reveal" sur page recherche
-    sr.reveal('.lkanji', {duration: 800, interval: 50, distance: '1em', origin: 'left', reset: true});
+    sr.reveal('.lkanji', {duration: 800, interval: 50, distance: '1em', origin: 'left'});
     sr.reveal('.h_resultat', {duration: 1000});
 
     //Effets "reveal" sur page contact
@@ -16,8 +16,8 @@ $(document).ready(function() {
     sr.reveal('#h_contact', {duration:1000});
 
     //Effets "reveal" sur page jeux
-    sr.reveal('.jeux', {duration: 1500, interval:500, reset: true, distance: '2em', origin: 'left'});
-    sr.reveal('#contact', {duration: 1500, distance: '1.5em', origin: 'bottom', reset: true});
+    sr.reveal('.jeux', {duration: 1500, interval:500, distance: '2em', origin: 'left'});
+    sr.reveal('#contact', {duration: 1500, distance: '1.5em', origin: 'bottom'});
 
     if(document.getElementById("search").value == ""){
         sr.reveal('#d_search', {duration: 1000});

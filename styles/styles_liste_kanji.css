@@ -1,46 +1,208 @@
-#d_liste_kanji{
-    min-height:39.8em;
-    margin-top:1em;
-    margin-bottom:5em;
+@media only screen and (min-width: 1300px) {
+
+    #d_liste_kanji{
+        margin-top:1em;
+        margin-bottom:5em;
+        min-height:39.8em;
+    }
+
+    #lstkanji{
+        font-size: 1.4em;
+        padding-left:4em;
+    }
+
+    .lkanji{
+        width:50em;
+    }
+
+    .kanji{
+        font-size:8em;
+        padding:0.4em;
+    }
+
+    .d_lect{
+        padding-left:3em;
+    }
+
+    h3 {
+        font-size:1.6em;
+    }
+
+    #search{
+        font-size:1.7em;
+        height:2.1em;
+    }
+
+    #sub_search{
+        font-size:1.2em;
+    }
+
+    .niveau{
+        font-size:1.4em;
+    }
+
 }
 
-#lstkanji{
-    font-size: 1.4em;
-    padding-left:4em;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    row-gap:1em;
+@media only screen and (max-width: 1300px) {
+
+    #d_liste_kanji{
+        margin-top:1em;
+        margin-bottom:5em;
+        min-height:39.8em;
+    }
+
+    #lstkanji{
+        font-size: 1.3em;
+        padding-left:3em;
+    }
+
+    .lkanji{
+        width:40em;
+    }
+
+    .kanji{
+        font-size:7em;
+        padding:0.4em;
+    }
+
+    .d_lect{
+        padding-bottom:2em;
+        padding-left:2em;
+    }
+
+    h3 {
+        font-size:1.5em;
+    }
+
+    #search{
+        font-size:1.5em;
+        height:2.1em;
+    }
+
+    #sub_search{
+        font-size:1.2em;
+    }
+
+    .niveau{
+        font-size:1.3em;
+    }
+
+}
+
+@media only screen and (max-width: 950px) {
+
+    #d_liste_kanji{
+        margin-top:0.5em;
+        margin-bottom:3em;
+        min-height:32.5em;
+    }
+
+    #lstkanji{
+        font-size: 1.1em;
+        padding-left:1em;
+    }
+
+    .lkanji{
+        width:35em;
+    }
+
+    .kanji{
+        font-size:5em;
+        padding:0.2em;
+    }
+
+    .d_lect{
+        padding-bottom:2em;
+        padding-left:1.5em;
+    }
+
+    h3 {
+        font-size:1.5em;
+    }
+
+    #search{
+        font-size:1.5em;
+        height:2.1em;
+    }
+
+    #sub_search{
+        font-size:1.2em;
+    }
+
+    .niveau{
+        font-size:1.3em;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    #d_liste_kanji{
+        margin-top:0.5em;
+        margin-bottom:3em;
+        min-height:23.8em;
+    }
+
+    h3 {
+        font-size:1.35em;
+    }
+
+    .lkanji{
+        width:30em;
+    }
+
+    #lstkanji{
+        font-size: 0.95em;
+        padding-left:1em;
+    }
+
+    .niveau{
+        font-size:1.2em;
+    }
+
+    #search{
+        font-size:1.5em;
+        height:1.75em;
+    }
+
+    #sub_search{
+        padding:1em;
+        font-size:1em;
+    }
 }
 
 html.sr .lkanji{
     visibility: hidden;
 }
 
+#lstkanji{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    row-gap:1em;
+}
+
 .lkanji{
     left: 0;
     display: flex;
     flex-direction: row;
-    gap:5em;
     border: black solid 2px;
-    width:50em;
 }
+
 .kanji{
-    font-size:8em;
-    padding:0.4em;
     display:flex;
-    border-right:black dotted 1px;
 }
 
 .d_lect{
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
+    border-left:black dotted 1px;
     padding-right:4em;
 }
 
-h3 {
-    font-size:1.6em;
+#d_search{
+    visibility: hidden;
 }
 
 #form_search{
@@ -51,14 +213,8 @@ h3 {
 }
 
 #search{
-    font-size:1.7em;
-    height:2.1em;
     width:40em;
     border-radius:5px;
-}
-
-#d_search{
-    visibility: hidden;
 }
 
 #sub_search{
@@ -67,7 +223,6 @@ h3 {
 
     width:12em;
     height:3.1em;
-    font-size:1.2em;
 
     cursor: pointer;
 
@@ -77,10 +232,6 @@ h3 {
 #sub_search:hover, #sub_search:active{
     background-color:#838282;
     color:#FCFCFC;
-}
-
-.niveau{
-    font-size:1.4em;
 }
 
 .h_resultat{

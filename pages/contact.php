@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head> 
+    <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../styles/styles_global.css">
         <link rel="stylesheet" href="../styles/styles_contact.css">
@@ -25,8 +25,8 @@
             <p>Damien Mouchagues<br>
             34000 Montpellier<br>
             damienmouchagues33@gmail.com</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46221.28623542236!2d3.839150003101894!3d43.61007300183535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af0725dd9db1%3A0xad8756742894e802!2sMontpellier!5e0!3m2!1sfr!2sfr!4v1675249167855!5m2!1sfr!2sfr" 
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            <iframe id="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46221.28623542236!2d3.839150003101894!3d43.61007300183535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af0725dd9db1%3A0xad8756742894e802!2sMontpellier!5e0!3m2!1sfr!2sfr!4v1675249167855!5m2!1sfr!2sfr" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
 
