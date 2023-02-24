@@ -16,8 +16,6 @@
 
         <div id="contenu">
 
-            <h2><span class='chjap'>漢字Quiz!</span></h2>
-
             <div id="timer">10</div>
 
             <div id="cont_quiz">
@@ -28,6 +26,9 @@
             <div id="cont_reponse">
                 <div id="bonne_reponse">
                     <p>Bonne réponse, bravo !</p>
+                    <div class="details">
+                        <?php //include "../controler/ctrl_details_kanji.php"; ?>
+                    </div>
                 </div>
                 <div id="mauvaise_reponse">
                     <p>Mauvaise réponse, dommage...</p>

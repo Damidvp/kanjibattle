@@ -19,6 +19,7 @@ a {
 #cont_quiz{
     margin-left:auto;
     margin-right:auto;
+    margin-top:1em;
 
     width:60%;
 
@@ -50,9 +51,10 @@ a {
     margin-bottom: 2em;
     margin-top: 2em;
     width:40em;
-    height:5em;
+    height:7em;
 
     display:flex;
+    flex-direction:column;
 
     border: dashed 0.15em;
     border-radius: 1em;
@@ -144,6 +146,7 @@ a {
     margin-left:auto;
     margin-right:auto;
     margin-bottom:0.5em;
+    margin-top:0.5em;
 
     display:flex;
     align-items:center;

@@ -38,7 +38,7 @@ $(document).ready(function() {
             affTexteBonneReponse();
             event.target.style.backgroundColor = "#14FF14";
             event.target.style.color = "#FEFEFE";
-            localStorage.clear();
+            localStorage.removeItem('br');
             localStorage.setItem('br', 1);
             let progress = 1;
             progression.setAttribute('value', progression.value+progress);
@@ -82,6 +82,9 @@ $(document).ready(function() {
         bonneReponse.style.backgroundColor = "rgba(55, 250, 60, 0.2)";
 
         qSuivante.style.display = "block";
+
+        console.log("Valeur bouton : " + btnBon.textContent);
+        
     }
 
     //Gère les événements en cas de mauvaise réponse

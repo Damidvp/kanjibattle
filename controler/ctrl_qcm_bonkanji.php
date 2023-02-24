@@ -66,8 +66,6 @@ if(isset($_GET['niveau'])){
     $listeQcm = $qcmBKPDO->getAllQcmBonKanjis(); //Liste de tous les QCM
 }
 
-//$nombreDeQcmsActuel = 20; //Nombre de qcm à passer
-
 //Si la page est rafraîchie, on réaffiche le QCM sur lequel on était
 if(!isset($_GET['action'])){
     if(isset($_SESSION['unQcmAuPif'])){
