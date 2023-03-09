@@ -16,9 +16,8 @@
 
         <div id="contenu">
 
-            <div id="timer">10</div>
-
             <div id="cont_quiz">
+                <div id="timer">10</div>
                 <div id="ajax"><?php include "../controler/ctrl_qcm_bonkanji.php"; ?></div>
                 <br>
             </div>
@@ -40,7 +39,7 @@
                     <button id="btn_qsuivante">Question suivante ></button>
                 </div>
             </div>
-            <a href="../controler/ctrl_leave_qcm.php"><div id="retour">Retour à l'accueil</div></a>
+            <div id="retour"><a id="a_retour" href="../controler/ctrl_leave_qcm.php">Retour à l'accueil</a></div>
         </div>
         <br>
 
